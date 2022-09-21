@@ -38,9 +38,9 @@ const vehicleEntryMethod = {
       if (foundVehicleEntry) {
         const tollFare = tollListMethod.getTollFare(foundVehicleEntry);
         if (foundVehicleEntry.vehicleTime > Date.now() - ONE_HOUR) {
-          return tollFare.singleJourneyFare;
+          return tollFare.returnJourneyFare;
         }
-        return tollFare.returnJourneyFare;
+        return tollFare.singleJourneyFare;
       }
     }
   },

@@ -92,7 +92,7 @@ const AddVehicleEntry = ({ close }) => {
               onChange={handleVehicleInputChange}
               type='text'
               name='vehicleNumber'
-              placeholder='Enter vehicle number'
+              placeholder='Enter vehicle number with a space'
               required
             />
           </div>
