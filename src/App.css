@@ -8,10 +8,38 @@
   /* text-align: center; */
 }
 
+label {
+  font-size: .8rem;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   /* border: 2px solid red; */
+}
+
+.container-column{
+  display: flex;
+  flex-direction: row;
+}
+
+.btn{
+  margin: 0 1rem;
+  border: none;
+  color: white;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  height: 2.5rem;
+  width: 8rem;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #0677EF
+}
+
+.btn-close{
+  background-color: lightcoral;
 }
 
 .header-items {
@@ -20,17 +48,6 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-}
-
-.btn-primary {
-  background-color: rgb(44, 111, 244);
-  border: none;
-  color: white;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  height: 2.5rem;
-  width: 8rem;
-  cursor: pointer;
 }
 
 .vertical-line {
@@ -84,17 +101,25 @@
 .d-block {
   display: block !important;
 }
+.align-start{
+  align-items: flex-start;
+}
+
+.align-center{
+  align-items: center;
+}
 
 .modal {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 15%;
+  left: 25%;
   z-index: 1050;
   display: none;
-  width: 100%;
+  width: 50rem;
   height: 100%;
   overflow: hidden;
   outline: 0;
+  /* padding: 3rem; */
 }
 
 .modal-dialog {
@@ -122,6 +147,7 @@
 .modal-body {
   position: relative;
   -ms-flex: 1 1 auto;
+  align-items: center;
   flex: 1 1 auto;
   padding: 1rem;
 }
@@ -144,8 +170,8 @@
   display: flex;
   -ms-flex-align: center;
   align-items: center;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
+  -ms-flex-pack: center;
+  justify-content: center;
   padding: 1rem;
   border-top: 1px solid #dee2e6;
   border-bottom-right-radius: 0.3rem;
@@ -184,3 +210,49 @@ th{
   color: rgb(100, 104, 108);
 }
 
+
+.add-form{
+  display: flex;
+  max-width: 40rem;
+  flex-direction: column;
+  justify-content: space-between;
+  /* padding: 1rem; */
+}
+
+.entry-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.w20{
+  width: 20rem;
+}
+
+.select-option{
+  /* appearance: none; */
+  margin: .6rem 0;
+  border: 1px solid lightgrey;
+  height: 2.5rem;
+  /* border-radius: 2rem; */
+  text-indent: .7rem;
+  cursor: pointer;
+}
+
+
+/* .select-option */
+
+.fare-details-form{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.fare-details-form select, .fare-details-form input {
+  width: 10rem;
+  margin-right: 1rem;
+}
+
+.error-message{
+  color: red;
+  font-size: .7rem;
+}
