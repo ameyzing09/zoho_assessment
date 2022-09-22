@@ -154,9 +154,9 @@
   background-color: rgba(1, 1, 1, 0.2);
 }
 table {
- 
+  display: flexbox;
   border-collapse: collapse;
-  width: 90%;
+  width: 100%;
 }
 td  {
   height: 3rem;
@@ -167,13 +167,14 @@ td  {
 
 th, td {
   border-bottom: 1px solid #ddd;
+  
 }
 th{
-  
   border: 0.1rem solid rgb(225, 233, 239);
   background-color: rgb(225, 233, 239);
   font-weight:inherit;
   font-style: serif;
   color: rgb(100, 104, 108);
+  
 }
 
