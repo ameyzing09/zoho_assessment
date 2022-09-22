@@ -20,7 +20,9 @@ const AddVehicleEntry = ({ close }) => {
   const handleVehicleSubmit = (e) => {
     e.preventDefault();
     if(addVehicleEntry.vehicleType && addVehicleEntry.tollName && addVehicleEntry.vehicleNumber) {
+      addVehicleEntry.fare = tariffRate;
       vehicleEntryMethod.addVehicleEntryInLs(addVehicleEntry);
+      console.log('addEntryVehicle : ', addVehicleEntry)
       setAddVehicleEntry({
         vehicleType: "",
         vehicleNumber: "",
@@ -103,7 +105,7 @@ const AddVehicleEntry = ({ close }) => {
               className='select-option w20'
               value={tariffRate}
               type='text'
-              name='vehicleTariff'
+              name='fare'
               placeholder='Tariff'
               disabled
             />

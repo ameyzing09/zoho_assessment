@@ -12,7 +12,8 @@ import tollListMethod from "./tollList";
 
 const vehicleEntryMethod = {
   addVehicleEntryInLs: (vehicleEntry) => {
-    vehicleEntry.vehicleTime = Date.now();
+    vehicleEntry.vehicleTime = new Date();
+    console.log('vehicleEntry.vehicleTime : ', +vehicleEntry.vehicleTime);
     const vehicleEntries = JSON.parse(localStorage.getItem("vehicleEntry"));
     if (!vehicleEntries) {
       localStorage.setItem("vehicleEntry", JSON.stringify([vehicleEntry]));
@@ -37,17 +38,15 @@ const vehicleEntryMethod = {
       console.log('foundVehicleEntry : ', foundVehicleEntry)
       if (foundVehicleEntry) {
         const tollFare = tollListMethod.getTollFare(foundVehicleEntry);
-        if (foundVehicleEntry.vehicleTime > Date.now() - ONE_HOUR) {
-          return tollFare.singleJourneyFare;
+        if (+foundVehicleEntry.vehicleTime > Date.now() - ONE_HOUR) {
+          return tollFare.returnJourneyFare;
         }
-        return tollFare.returnJourneyFare;
+        return tollFare.singleJourneyFare;
       }
     }
   },
 
-  getVehicleListFromLs: () => {
-    return JSON.parse(localStorage.getItem("vehicleEntry"));
-  },
+  getVehicleListFromLs: () => JSON.parse(localStorage.getItem("vehicleEntry")),
 };
 
 export default vehicleEntryMethod;

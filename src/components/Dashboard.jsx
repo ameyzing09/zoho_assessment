@@ -11,17 +11,22 @@ import SearchBar from "./SearchBar";
 import vehicleEntryHeaderMethod from "../services/utils/localStorage/methods/vehicleEntryHeader";
 import vehicleEntryMethod from "../services/utils/localStorage/methods/vehicleEntry";
 
+let data = [];
+
 const Dashboard = () => {
+  useEffect(() => {
+    data = vehicleEntryMethod.getVehicleListFromLs()
+    if(data && data.length > 0) {
+      setVehiclesList(data);
+    } else {
+      setVehiclesList([]);
+    }
+  }, [])
   const [tollList, setTollList] = useState();
   const [vehiclesList, setVehiclesList] = useState([]);
-  // const [vehicleListHeader, setVehicleListHeader] = useState({});
+
+  console.log('data: ',vehiclesList)
   const [searchVehicleQuery, setSearchVehicleQuery] = useState("");
-
-  useEffect(() => {
-    // get all list of all latest available vehicle list and set it to setVehicleList
-    setVehiclesList(vehicleEntryMethod.getVehicleListFromLs)
-  }, [searchVehicleQuery]);
-
   const openVehicleEntryForm = () => ModelService.open(AddVehicleEntry);
   const openTollEntryForm = () => ModelService.open(AddTollEntry);
 
@@ -48,11 +53,11 @@ const Dashboard = () => {
         </div>
       </div>
       <div>
-        {/* <List
+        <List
           query={searchVehicleQuery}
           list={vehiclesList}
           header={vehicleEntryHeaderMethod.getVehicleListEntryHeadersFromLs}
-        /> */}
+        />
       </div>
     </>
   );
